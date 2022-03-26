@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 	<body>
-		time<div id="time"></div><br/>
 		positionError<div id="positionError"></div><br/>
 		accuracy<div id="accuracy"></div><br/>
 		altitude<div id="altitude"></div><br/>
@@ -14,17 +13,19 @@
 	<script>
 		 if (navigator.geolocation) {     
 			navigator.geolocation.getCurrentPosition(setCurrentPosition, positionError, { 
-				enableHighAccuracy: false, 
-				timeout: 15000, 
+				enableHighAccuracy: true, 
+				timeout: 1000, 
 				maximumAge: 0 
 			});
 			
 			geoWatch = navigator.geolocation.watchPosition( setCurrentPosition, positionError, { 
-                                enableHighAccuracy: false, timeout: 1000, maximumAge: 0}); 
+                                enableHighAccuracy: true, timeout: 1000, maximumAge: 0}); 
 							
 			console.debug('geoWatch', geoWatch);
 			
-			const watchId = navigator.geolocation.watchPosition(setCurrentPosition);
+			const watchId = navigator.geolocation.watchPosition(
+			  position => console.log(position)
+			);
 		}
 		
 		//document.querySelector("#latitude").innerHTML = "test";
@@ -37,7 +38,7 @@
 			//console.debug('latitude',  position.coords.latitude); 
 			//console.debug('longitude',  position.coords.longitude); 
 			//console.debug('speed',  position.coords.speed);
-			//console.debug('speed', position);
+			console.debug('speed', position);
 			//document.querySelector("#latitude").innerHTML = position;
 			
 			document.querySelector('#accuracy').innerHTML = position.coords.accuracy; 
@@ -47,9 +48,6 @@
 			document.querySelector( "#latitude").innerHTML = position.coords.latitude; 
 			document.querySelector( '#longitude' ).innerHTML = position.coords.longitude; 
 			document.querySelector( '#speed' ).innerHTML = position.coords.speed;
-			document.querySelector( '#time' ).innerHTML = new Date();
-			console.debug(new Date())
-
 		}
 		
 		function positionError(err){
