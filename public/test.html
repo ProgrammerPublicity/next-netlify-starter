@@ -14,12 +14,12 @@
 		 if (navigator.geolocation) {     
 			navigator.geolocation.getCurrentPosition(setCurrentPosition, positionError, { 
 				enableHighAccuracy: true, 
-				timeout: 1000, 
+				timeout: 5000, 
 				maximumAge: 0 
 			});
 			
 			geoWatch = navigator.geolocation.watchPosition( setCurrentPosition, positionError, { 
-                                enableHighAccuracy: true, timeout: 1000, maximumAge: 0}); 
+                                enableHighAccuracy: true, timeout: 5000, maximumAge: 0}); 
 							
 			console.debug('geoWatch', geoWatch);
 			
