@@ -47,7 +47,7 @@
 			document.querySelector( '#heading' ).innerHTML = position.coords.heading; 
 			document.querySelector( "#latitude").innerHTML = position.coords.latitude; 
 			document.querySelector( '#longitude' ).innerHTML = position.coords.longitude; 
-			document.querySelector( '#speed' ).innerHTML = position.coords.speed;
+			document.querySelector( '#speed' ).innerHTML = parseFloat(position.coords.speed) * 3.6;
 		}
 		
 		function positionError(err){
