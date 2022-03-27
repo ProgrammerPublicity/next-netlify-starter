@@ -14,8 +14,13 @@
 </head>
 <body>
 <style>
+     @font-face {
+	font-family: myFirstFont;
+	src: url('B Nazanin Bold.ttf');
+    }
     .map-overlay {
-        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        /*font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;*/
+	font-family: myFirstFont;
         position: absolute;
         width: 300px;
         top: 0;
@@ -23,8 +28,6 @@
         padding: 10px;
         background-color: pink;
     }
-
-
 </style>
 
 <div id="map"></div>
